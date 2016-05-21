@@ -1,0 +1,47 @@
+\section{Граничные условия}  
+\paragraph{Условия первого рода:}
+\begin{empheq}[left=\empheqlbrace]{equation}
+    \label{eq1:cond1}
+    \begin{aligned}
+		\left. u(x_{1},x_{2},t)\right|_{\Gamma} &= \varphi_1 \\
+		\left. v(x_{1},x_{2},t)\right|_{\Gamma} &= \varphi_2 
+    \end{aligned}
+    \qquad (x_{1},x_{2}) \in \; \Gamma
+\end{empheq}
+задается распределение плотности населения на границах области для каждого момента времени. Здесь $\varphi_{s}: (s = 1,2)$ так же может зависеть времени $\varphi_{s} = \varphi_{s}(t)$. 
+
+\paragraph{Условия второго рода:}
+
+\begin{empheq}[left=\empheqlbrace]{equation}
+    \label{eq1:cond2}
+    \begin{aligned}
+		K_{1}\left. \frac{\partial u}{\partial n} \; \right|_{\Gamma } \quad &=\varphi_1\\
+		K_{2}\left. \frac{\partial v}{\partial n} \; \right|_{\Gamma } \quad &=\varphi_2
+    \end{aligned}
+    \qquad (x_{1},x_{2}) \in \; \Gamma
+\end{empheq}
+то есть мы допускаем <<поток>> населения через границу городского пространства, или же ограничиваем его поставив производную равную нулем.
+\paragraph{Условия третьего рода:}
+
+\begin{empheq}[left=\empheqlbrace]{equation}
+    \label{eq1:cond3}
+    \begin{aligned}
+    	\left.\left(A_{1} u + K_{1} \frac{\partial u}{\partial n} \right) \right|_{\Gamma } &=\varphi_1\\
+    	\left.\left(A_{2} v + K_{2} \frac{\partial v}{\partial n} \right) \right|_{\Gamma } &=\varphi_2\\ 	
+    \end{aligned}
+    \quad (x_{1},x_{2}) \in \Gamma \quad A_{s} = const, \; s = 1,2,
+\end{empheq}
+как и в физических задачах тепло-массы переноса, обмен с внешней средой имеет место быть. Трактовать это можно тем что не возможно ограничить поток население в одну сторону, таким образом такие условия, придают модели немало важную составляющую.
+
+В краевых условиях второго и третьего рода (\ref{eq1:cond2} - \ref{eq1:cond3}), производная $ \frac{\p .}{\p n} $ обозначает нормальную производную от искомой функции по вектору внешней единичной нормали к соответствующему участку границы $ \Gamma = \{AB \cup BC \cup CD \cup AD \} $, т.е.:
+
+\begin{itemize}
+\item на участке границы $AB$ это: \; $ \left. \frac{\p .}{\p n} \right|_{\Gamma} = - \left. \frac{\p .}{\p x_{1}} \right|_{AB}
+\; (x_{1},x_{2}) \in AB : \{ x_{1} = 0,\; 0 < x_{2} < l_{2} \}$
+\item на участке границы $BC$ это: \; $ \left. \frac{\p .}{\p n} \right|_{\Gamma} = \phantom{-} \left. \frac{\p .}{\p x_{2}} \right|_{BC}
+\; (x_{1},x_{2}) \in BC : \{ 0 < x_{1} < l_{1},\; x_{2} = l_{2} \}$
+\item на участке границы $CD$ это: \; $ \left. \frac{\p .}{\p n} \right|_{\Gamma} = \phantom{-} \left. \frac{\p .}{\p x_{1}} \right|_{CD}
+\; (x_{1},x_{2}) \in CD : \{ x_{1} = l_{1},\; 0 < x_{2} < l_{2} \}$
+\item на участке границы $AD$ это: \; $ \left. \frac{\p .}{\p n} \right|_{\Gamma} = -\left. \frac{\p .}{\p x_{2}} \right|_{AD}
+\; (x_{1},x_{2}) \in AD : \{ 0 < x_{1} < l_{1},\; x_{2} = 0 \}$
+\end{itemize}

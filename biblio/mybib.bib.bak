@@ -1,0 +1,92 @@
+% Encoding: UTF-8
+
+@Book{zhang1999,
+  author    = {Занг, В.-Б.},
+  title     = {Синергетическая экономика. Время и перемены в нелинейной экономической теории: Пер. с англ.},
+  year      = {1999},
+  publisher = {Мир},
+  pagetotal = {335},
+  address   = {М.},
+}
+
+@Book{Tihonov,
+  author    = {Тихонов, А. Н. and Самарский, А. А.},
+  title     = {Уравнения математической физики},
+  year      = {1966},
+  publisher = {Мир},
+  pagetotal = {724},
+  address   = {М.},
+}
+
+@Book{Samarskiy1977,
+  author    = {Самарский, А. А.},
+  title     = {Теория разностных схем},
+  year      = {1977},
+  publisher = {Наука},
+  pagetotal = {656},
+  address   = {М.},
+}
+
+@Book{Arnold,
+  author    = {Арнольд, В.И.},
+  title     = {«Жесткие» и «мягкие» математические модели},
+  year      = {2000},
+  publisher = {МЦНМО},
+  pagetotal = {32},
+  address   = {М.},
+}
+
+@Book{Bykov,
+  author    = {Быков, В.И. and Цыбенова, С.Б.},
+  title     = {Нелинейные модели химической кинетики},
+  year      = {2011},
+  publisher = {КРАСАНД},
+  pagetotal = {400},
+  address   = {М.},
+}
+
+@Book{Samarskiy1987,
+  author    = {Самарский, А.А. and Галактионов, В.А. and Курдюмов, С.П and Михайлов, А.П.},
+  title     = {Режимы с обострением в задачах для квазилинейных параболических уравнений},
+  year      = {1987},
+  publisher = {Наука},
+  pagetotal = {480},
+  address   = {М.},
+}
+
+@Book{alonso,
+  author    = {Алонсо~(Alonso~W.)},
+  title     = {Location and land use: Toward a general theory of land rent},
+  year      = {1974},
+  publisher = {Harvard University Press},
+  address   = {MA},
+}
+
+@Book{kostomarov,
+  author    = {Костомаров, Дмитрий Павлович and Фаворский, А. П.},
+  title     = {Вводные лекции по численным методам},
+  year      = {2004},
+  publisher = {Логос М.},
+  pagetotal = {184},
+}
+
+@Article{peaceman,
+  author    = {Peaceman, Donald W and Rachford, Jr, Henry H},
+  title     = {The numerical solution of parabolic and elliptic differential equations},
+  year      = {1955},
+  volume    = {3},
+  number    = {1},
+  pages     = {28--41},
+  journal   = {Journal of the Society for industrial and Applied Mathematics},
+  publisher = {SIAM},
+}
+
+@Article{zhang1991,
+  author    = {Занг~(Zhang~Wei-Bin)},
+  title     = {Synergetic economics: time and change in nonlinear economics},
+  year      = {1991},
+  journal   = {Springer series in synergetics},
+  publisher = {Springer Verlag},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}

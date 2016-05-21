@@ -1,0 +1,48 @@
+\section{Система линейных алгебраических уравнений} \label{sec:sole}
+
+Рассмотрим решение уравнения (\ref{eq2:aprox1}) с соответствующими ему границами (\ref{eq2:bca1}) - (\ref{eq2:bca2}). 
+
+Приведем эти уравнения к виду:
+\begin{equation}
+     a_i y_{i-1} + b_i y_{i} +  c_i y_{i+1} = d_i
+\end{equation}
+
+Преобразуем уравнение (\ref{eq2:aprox1}):
+\begin{equation*}
+    \label{eq2:fixedaprox1}
+    -\left(\frac{\tau}{2h^2}\mu_{i-1/2}\right) \overline{y}_{i-1} + \left[\frac{\tau}{2h^2}\left(\mu_{i+1/2} + \mu_{i-1/2}\right) + 1\right]\overline{y}_{i} - \left(\frac{\tau}{2h^2}\mu_{i+1/2}\right) \overline{y}_{i+1} = y^{k}_{i} +  \frac{\tau}{2} f_{i}\\
+\end{equation*}
+таким образом \textit{прогоночные} коэффициенты $a_i, b_i, c_i, d_i$ равняются:
+\begin{equation}
+    \label{eq2:coefficient1}
+    \begin{aligned}
+        a_{i} &= -\frac{\tau}{2h^2}\mu_{i-1/2}; & i = \overline{1,N-1} \\
+        b_{i} &= \phantom{-}\frac{\tau}{2h^2}\left(\mu_{i+1/2} + \mu_{i-1/2}\right) + 1; & i = \overline{1,N-1} \\
+        c_{i} &= -\frac{\tau}{2h^2}\mu_{i+1/2}; & i = \overline{1,N-1} \\
+        d_{i} &= \phantom{-}y^{k}_{i} +  \frac{\tau}{2} f_{i}; & i = \overline{1,N-1}
+    \end{aligned}
+\end{equation}
+
+Преобразуем граничные уравнения (\ref{eq2:bca1}) - (\ref{eq2:bca2}):
+\begin{align*}
+    &\left(\frac{\tau}{h^{2}}\mu_{1/2} + \frac{\tau}{h}A_{1} + 1\right) \overline{y}_{0} - \left(\frac{\tau}{h^{2}}\mu_{1/2}\right)\overline{y}_{1} = y^{k}_{0} + \frac{\tau}{2} f_{0} + \frac{\tau}{h}\varphi_{1}\\
+    &\left(\frac{\tau}{h^{2}}\mu_{N-1/2} + \frac{\tau}{h}A_{2} + 1\right) \overline{y}_{N} - \left(\frac{\tau}{h^{2}}\mu_{N-1/2}\right)\overline{y}_{N-1} = y^{k}_{N} + \frac{\tau}{2} f_{N} + \frac{\tau}{h}\varphi_{2}
+\end{align*}
+получаем:
+\begin{equation}
+    \label{eq2:coefficient2}
+    \begin{aligned}
+        a_{0} &= \phantom{-}0; &
+        a_{N} &= -\frac{\tau}{h^{2}}\mu_{N-1/2};\\
+        b_{0} &= \phantom{-}\frac{\tau}{h^{2}}\mu_{1/2} + \frac{\tau}{h}A_{1} + 1; & \qquad
+        b_{N} &= \phantom{-}\frac{\tau}{h^{2}}\mu_{N-1/2} + \frac{\tau}{h}A_{2} + 1; \\
+        c_{0} &= -\frac{\tau}{h^{2}}\mu_{1/2};&
+        c_{N} &= \phantom{-}0;\\
+        d_{0} &= \phantom{-}y^{k}_{0} + \frac{\tau}{2} f_{0} + \frac{\tau}{h}\varphi_{1}; & 
+        d_{N} &= \phantom{-}y^{k}_{N} + \frac{\tau}{2} f_{N} + \frac{\tau}{h}\varphi_{2};
+    \end{aligned}
+\end{equation}
+
+(Кратко описать об алгоритме \textit{прогонки}, или сослаться на учебники)
+
+Алгоритм решения уравнения (\ref{eq2:aprox2}) с соответствующими ему границами (\ref{eq2:bca3}) - (\ref{eq2:bca4}) аналогичен . Отличаться он будет только тогда, когда на границах ($AD$ и $CD$)  будут заданы различные краевые условия. Прогонка будет осуществляться по индексу $j$, а не известными будут $ y^{k+1}_{j-1},\; y^{k+1}_{j},\; y^{k+1}_{j+1}$.

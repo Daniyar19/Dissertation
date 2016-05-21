@@ -1,0 +1,34 @@
+\subsection{Метод баланса} \label{ssec:balance}
+
+В виду того что решается одномерное уравнение, опустим индексирование по одному из аргументов, а промежуточное значение функции при $t=t^{k+1/2}$, для упрощения записи, обозначим как  $y^{k+1/2}_{i,j} = \overline{y}_{i,j}$.
+
+На отрезке $x_{i-1/2} \leq x \leq x_{i+1/2}$ где $x_{i-1/2} = \frac{1}{2}(x_{i-1} + x_{i})$ за время $\Delta t/2$ проинтегрируем локально одномерные уравнения, полученные из исходного уравнения (\ref{eq2:diffusion}):
+
+\begin{gather}
+    \int\limits_{x_{i-1/2}}^{x_{i+1/2}} \left(\overline{y}_{i} - y^{k}_{i}\right)dx = 
+    \int\limits_{t^k}^{t^{k+\tau/2}} \Big(W_{i+1/2} - W_{i-1/2}\Big)dt +
+    \int\limits_{t^k}^{t^{k+\tau/2}} \int\limits_{x^{i-1/2}}^{x^{i+1/2}} f_{i}\,dx\,dt \\[2pt]
+    W_{i+1/2} = \mu_{i+1/2} \bigg( \frac{\overline{y}_{i+1} - \overline{y}_{i}}{h} \bigg) , \quad
+	W_{i-1/2} = \mu_{i-1/2} \bigg( \frac{\overline{y}_{i} - \overline{y}_{i-1}}{h} \bigg)  \nonumber
+\end{gather}
+
+Аналогично и для другого направления, на отрезке $x_{j-1/2} \leq x \leq x_{j+1/2}$ и втором полуинтервале по времени:
+
+\begin{gather}
+    \int\limits_{x_{j-1/2}}^{x_{j+1/2}} \left(y^{k+1}_{j} - \overline{y}_{j}\right)dx = 
+    \int\limits_{t^{k+\tau/2}}^{t^{k+\tau}} \Big(W_{j+1/2} - W_{j-1/2}\Big)dt +
+    \int\limits_{t^{k+\tau/2}}^{t^{k+\tau}} \int\limits_{x^{j-1/2}}^{x^{j+1/2}} f_{j}\,dx\,dt \\[2pt]
+	W_{j+1/2} = \mu_{j+1/2} \bigg( \frac{y^{k+1}_{j+1} - y^{k+1}_{j}}{h} \bigg) , \quad
+	W_{j-1/2} = \mu_{j-1/2} \bigg( \frac{y^{k+1}_{j} - y^{k+1}_{j-1}}{h} \bigg) \nonumber
+\end{gather}
+
+В итоге получим локально одномерную схему для исходного уравнения (\ref{eq2:diffusion}) на $\omega_{h}$:
+\begin{gather} \label{eq2:aprox1}
+\left(\overline{y}_{i} - y^{k}_{i}  \right) h = \frac{\tau}{2h} \left[\mu_{i+1/2} \left( \overline{y}_{i+1} - \overline{y}_{i} \right) - \mu_{i-1/2} \left( \overline{y}_{i} - \overline{y}_{i-1} \right)\right] + \frac{\tau h}{2} f_{i},\\
+i=\overline{1,N-1}, \;\; (j = \overline{0,M}) \nonumber
+\end{gather}
+
+\begin{gather} \label{eq2:aprox2}
+    \left(y^{k+1}_{j} - \overline{y}_{j}  \right) h = \frac{\tau}{2h} \left[\mu_{j+1/2} \left( y^{k+1}_{j+1} - y^{k+1}_{j} \right) - \mu_{j-1/2} \left( y^{k+1}_{j} - y^{k+1}_{j-1} \right)\right] + \frac{\tau h}{2} f_{j},\\
+    j = \overline{1,M-1}, \;\; (i=\overline{0,N}) \nonumber
+\end{gather}

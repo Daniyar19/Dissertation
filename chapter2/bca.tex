@@ -1,0 +1,54 @@
+\section{Аппроксимация граничных условий} \label{bca}
+
+Для аппроксимации граничных условий (\ref{eq2:cond}) воспользуемся тем же \textit{методом баланса}. Представим граничные условия (\ref{eq2:cond}) так как показано на стр.5:
+
+\begin{empheq}[left=\empheqlbrace]{align}
+\label{eq2:AB}
+\left.\left(A_{1} u - K \frac{\partial u}{\partial x_{1}} \right) \right|_{AB } =\varphi_{1},\qquad & x_{1} = 0 \\
+\label{eq2:CD}
+\left.\left(A_{2} u + K \frac{\partial u}{\partial x_{1}} \right) \right|_{CD } =\varphi_{2},\qquad & x_{1} = l_{1} \\
+\label{eq2:AD}
+\left.\left(A_{3} u - K \frac{\partial u}{\partial x_{2}} \right) \right|_{AD } =\varphi_{3},\qquad & x_{2} = 0 \\
+\label{eq2:BC}
+\left.\left(A_{4} u + K \frac{\partial u}{\partial x_{2}} \right) \right|_{BC } =\varphi_{4},\qquad & x_{2} = l_{2}
+\end{empheq}
+
+И так для локальной одномерной схемы (\ref{eq2:los1}) - (\ref{eq2:los2}), проинтегрируем уравнения:\\
+--- по направлению $Ox_{1}$ на отрезке $[x_{0},x_{1/2}]$: 
+\begin{align}
+\label{eq2:intAD}
+    \int\limits_{x_{0}}^{x_{1/2}} \left(\overline{y}_{0} - y^{k}_{0}\right)dx &= 
+    \int\limits_{t^k}^{t^{k+\tau/2}} \left(W_{1/2} - W_{0}\right)dt +
+    \int\limits_{t^k}^{t^{k+\tau/2}} \int\limits_{x^{0}}^{x^{1/2}} f_{0}\,dx\,dt\\
+\intertext{--- по направлению $Ox_{1}$ на отрезке $[x_{N-1/2},x_{N}]$:}
+\label{eq2:intBC}
+    \int\limits_{x_{N-1/2}}^{x_{N}} \left(\overline{y}_{N} - y^{k}_{N}\right)dx &= 
+    \int\limits_{t^k}^{t^{k+\tau/2}} \left(W_{N} - W_{N-1/2}\right)dt +
+    \int\limits_{t^k}^{t^{k+\tau/2}} \int\limits_{x^{N-1/2}}^{x^{N}} f_{N}\,dx\,dt \\
+\intertext{--- по направлению $Ox_{2}$ на отрезке $[x_{0},x_{1/2}]$:}
+\label{eq2:intAB}
+    \int\limits_{x_{0}}^{x_{1/2}} \left(y^{k+1}_{0} - \overline{y}_{0}\right)dx &= 
+    \int\limits_{t^{k+\tau/2}}^{t^{k+\tau}} \left(W_{1/2} - W_{0}\right)dt +
+    \int\limits_{t^{k+\tau/2}}^{t^{k+\tau}} \int\limits_{x^{0}}^{x^{1/2}} f_{0}\,dx\,dt\\
+\intertext{--- по направлению $Ox_{2}$ на отрезке $[x_{M-1/2},x_{M}]$:}
+\label{eq2:intCD}
+    \int\limits_{x_{M-1/2}}^{x_{M}} \left(y^{k+1}_{M} - \overline{y}_{M}\right)dx &= 
+    \int\limits_{t^{k+\tau/2}}^{t^{k+\tau}} \left(W_{M} - W_{M-1/2}\right)dt +
+    \int\limits_{t^{k+\tau/2}}^{t^{k+\tau}} \int\limits_{x^{M-1/2}}^{x^{M}} f_{M}\,dx\,dt
+\end{align}
+\noindent Далее подставив соответстующие значения из соотношений (\ref{eq2:AB}) - (\ref{eq2:BC}) в полученные интегральные уравнения (\ref{eq2:intAD}) - (\ref{eq2:intCD}), получим аппроксимацию граничных условий :\\
+---при  $x_{1} = 0$ на отрезке $AB$ :
+\begin{align}
+\label{eq2:bca1}
+    \left(\overline{y}_{0} - y^{k}_{0}\right)\frac{h}{2} &= \frac{\tau}{2} \left[\mu_{1/2}\frac{\overline{y}_{1} - \overline{y}_{0}}{h} - \left(A_{1}\overline{y}_{0} - \varphi_{1}\right)\right] + \frac{\tau h}{4} f_{0}, & (j = \overline{0,M})\\
+\intertext{--- при $x_{1} = l_{1}$ на отрезке $CD$:}
+\label{eq2:bca2}
+    \left(\overline{y}_{N} - y^{k}_{N}\right)\frac{h}{2} &= \frac{\tau}{2} \left[\left(\varphi_{2} - A_{2}\overline{y}_{N}\right) - \mu_{N-1/2}\frac{\overline{y}_{N}-\overline{y}_{N-1})}{h}\right] + \frac{\tau h}{4} f_{N}, & (j = \overline{0,M})\\
+\intertext{--- при $x_{2} = 0$ на отрезке $AD$:}
+\label{eq2:bca3}
+    \left(y^{k+1}_{0} - \overline{y}_{0}\right)\frac{h}{2} &= \frac{\tau}{2} \left[\mu_{1/2}\frac{y^{k+1}_{1} - y^{k+1}_{0}}{h} - \left(A_{3} y^{k+1}_{0} - \varphi_{3}\right)\right] + \frac{\tau h}{4} f_{0}, & (i=\overline{0,N})\\
+\intertext{--- при $x_{2} = l_{2}$ на отрезке $BC$:}
+\label{eq2:bca4}    
+    \left(y^{k+1}_{M} - \overline{y}_{M}\right)\frac{h}{2} &= \frac{\tau}{2} \left[\left(\varphi_{4} - A_{4} y^{k+1}_{M}\right) - \mu_{M-1/2}\frac{y^{k+1}_{M}-y^{k+1}_{M-1}}{h}\right] + \frac{\tau h}{4} f_{M}, & (i=\overline{0,N})
+\end{align}
+

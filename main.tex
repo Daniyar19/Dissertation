@@ -1,0 +1,45 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,main=russian]{babel}
+\usepackage{amsmath,empheq}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvips]{graphicx} \graphicspath{{images/}}
+\usepackage{caption}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{indentfirst}
+\usepackage{csquotes}
+\usepackage[
+style=gost-numeric,
+backend=biber,
+movenames=true,
+natbib=true,
+maxnames = 3,
+minnames = 3,
+sorting=none
+]{biblatex}
+\addbibresource{biblio/mybib.bib}
+
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+
+\input{macros}
+
+\author{Кусаинов Данияр}
+
+\sloppy
+
+\begin{document}
+\input{title}
+\input{abstract}
+\tableofcontents
+% \addcontentsline{toc}{chapter}{Введение}
+\input{introduction}
+\input{chapter1/problem}
+\input{chapter2/solution}
+\input{chapter3/results}
+\input{conclusion}
+\printbibliography[heading=bibintoc]
+\end{document}
